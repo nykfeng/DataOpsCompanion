@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="action-panel" class="container bg-secondary p-3">
+
+    <div class="d-flex justify-content-start">
+        <div id="bulk-url-action">
+            <form action="" class="d-flex">
+                <textarea name="url-box" id="url-box" cols="25" rows="5"
+                          placeholder="bulk TroiRadar/URL launcher"></textarea>
+                <button id="go-to-url" class="btn btn-warning rounded-circle">Go</button>
+            </form>
+        </div>
+        <div class="d-flex flex-column justify-content-start gap-2">
+            <form action="" class="mx-2" id="action-variable-input-form">
+                <input type="text" name="action-variable-input" id="action-variable-input"
+                       placeholder="rule ID, CSS rule, JavaScript">
+            </form>
+            <div class="button-group">
+                <button class="btn btn-warning fw-bold mx-2">START</button>
+                <button class="btn btn-primary fw-bold mx-2">CSS</button>
+                <button class="btn btn-warning fw-bold mx-2">JavaScript</button>
+            </div>
+            <div class="mx-2 p-1 bg-white d-flex justify-content-between" id="action-variable-output-div">
+                <div id="action-variable-input" class="d-flex align-items-center">
+                    document.querySelectorAll('.ebm-content-page')
+                </div>
+                <button class="btn btn-success btn-sm">Copy</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div id="content-panel" class="container text-white">
+    <div class="row">
+        <div class="col-3 bg-warning">
+            Column
+        </div>
+        <div class="col-6 bg-secondary">
+            Column
+        </div>
+        <div class="col-3 bg-success">
+            Column
+        </div>
+    </div>
