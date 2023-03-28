@@ -32,7 +32,7 @@ function isEmptyString(str) {
 function isValidURL(url) {
     // Regular expression to match a URL pattern
     const urlRegex =
-        /^(?:(?:https?|ftp):\/\/)?(?:[\w-]+\.)+[a-z]{2,}(?:\/[\w_.-]*)*(?:\?(?:[\w_-]+=[\w_-]+&?)*)?(?:#[\w_-]*)?$/i;
+        /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
 
     // Test the URL string against the regular expression
     return urlRegex.test(url);
