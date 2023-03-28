@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<script src="./js/components/bulkUrlLoader.js" defer></script>
+<script src="./js/components/bulkUrlLoader.js" type="module" defer></script>
+<script src="./js/components/actionPanel/cssDomSelector.js" type="module" defer></script>
+
 
 <div id="control-panel" class="container  p-3">
     <div class="d-flex justify-content-start gap-5">
@@ -16,29 +18,20 @@
             <div class="title-bar fw-bold">Action Panel</div>
             <div class="title-sub-container p-2 pt-3 d-flex flex-column justify-content-start gap-2">
                 <form action="" class="mx-2" id="action-variable-input-form">
-                    <input type="text" name="action-variable-input" id="action-variable-input"
+                    <input type="text" name="action-variable-input" class="copy-text" id="action-variable-input"
                            placeholder="page ID, CSS selector, JavaScript">
+                    <button class="btn btn-success copy-btn">Copy</button>
                 </form>
+                <div class="horizontal-line"></div>
                 <div class="button-group">
                     <button class="btn btn-success fw-bold mx-2">START</button>
-                    <button class="btn btn-primary fw-bold mx-2">CSS</button>
+                    <button id="css-btn" class="btn btn-primary fw-bold mx-2">CSS</button>
                     <button class="btn btn-warning fw-bold mx-2">JavaScript</button>
                 </div>
-                <div class="mx-2 py-1 bg-white d-flex justify-content-between" id="action-variable-output-div">
-                    <div id="action-variable-output" class="bg-secondary text-white px-2 d-flex align-items-center">
-                        document.querySelectorAll('.ebm-content-page')
-                    </div>
-                    <button class="btn btn-success btn-sm">Copy</button>
-                </div>
 
-                <div id="option-variable" class="mx-2 py-1">
-                    <form action="">
-                        <input type="radio" id="complex-rule" name="CSS-rule-option" value="To Complex Rule"
-                               checked>
-                        <label for="CSS-rule-option">To Complex Rule</label>
-                    </form>
-                </div>
+                <div class="horizontal-line"></div>
             </div>
+
 
         </div>
     </div>

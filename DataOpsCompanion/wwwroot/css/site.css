@@ -190,3 +190,10 @@ button#go-to-url:disabled {
     opacity: 0.24;
 }
 /* END --- GO button */
+
+.horizontal-line {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    background-image: linear-gradient(to right, #ccc, #ddd, #ccc);
+}

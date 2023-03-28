@@ -1,22 +1,19 @@
-﻿const goButton = document.querySelector("button#go-to-url");
+﻿import utilities from "../utilities.js";
+
+const goButton = document.querySelector("button#go-to-url");
 const inputField = document.querySelector("textarea#url-box");
 
 goButton.addEventListener("click", (e) => {
     e.preventDefault();
     const input = inputField.value;
-    console.log("input  is ");
-    console.log(input);
 
     let inputArray = input.split(" ");
     if (inputArray.length === 1) {
         inputArray = inputArray[0].trim().split("\n");
     }
 
-    console.log("input array is ");
-    console.log(inputArray);
-
     inputArray.forEach((input) => {
-        if (isEmptyString(input)) return;
+        if (utilities.isEmptyString(input)) return;
         if (isValidURL(input)) {
             window.open(addProtocolIfNecessary(input), "_blank");
         } else if (isValidPageId(input)) {
@@ -24,10 +21,6 @@ goButton.addEventListener("click", (e) => {
         }
     });
 });
-
-function isEmptyString(str) {
-    return str.trim().length === 0;
-}
 
 function isValidURL(url) {
     // Regular expression to match a URL pattern
