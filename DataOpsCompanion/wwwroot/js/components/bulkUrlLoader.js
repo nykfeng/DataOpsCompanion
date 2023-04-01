@@ -25,7 +25,7 @@ goButton.addEventListener("click", (e) => {
 function isValidURL(url) {
     // Regular expression to match a URL pattern
     const urlRegex =
-        /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
+        /^((https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?)|(www\.([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?)$/i;
 
     // Test the URL string against the regular expression
     return urlRegex.test(url);
