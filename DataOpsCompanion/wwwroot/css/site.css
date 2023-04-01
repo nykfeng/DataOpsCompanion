@@ -31,12 +31,15 @@ body {
 
 input#action-variable-input {
     width: 500px;
-    font-style: italic;
+    padding: 3px 5px;
 }
 
 #action-variable-output {
     font-family: monospace;
-    color: brown;
+}
+
+[id^="action-variable-output"] {
+    animation: slideIn 300ms ease-out, fadeIn 500ms ease-in-out;
 }
 
 #url-box {
@@ -196,4 +199,25 @@ button#go-to-url:disabled {
     height: 1px;
     background-color: #ddd;
     background-image: linear-gradient(to right, #ccc, #ddd, #ccc);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
