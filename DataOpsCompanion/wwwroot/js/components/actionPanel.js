@@ -23,9 +23,10 @@ function onInputChange() {
 }
 
 function onClickCssBtn() {
-    let currentValue = inputEl.value;
-    if (utilities.isEmptyString(currentValue)) return;
+    let currentValue = inputEl.value.trim();
+    if (currentValue.length === 0) return;
 
+    
     removeCopyBtnsListeners(getAllCopyBtns());
 
     const cssSelectorStatement = createCssSelectorStatement(currentValue);
