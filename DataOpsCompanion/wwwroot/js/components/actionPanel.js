@@ -9,6 +9,8 @@ const actionPanelContentEl = actionPanelEl.querySelector(
     ".title-sub-container"
 );
 
+let lastClicked = "";
+
 init();
 
 function init() {
@@ -20,9 +22,11 @@ function init() {
 
 function onInputChange() {
     resetCopyBtnText();
+    updateOutputOnChange();
 }
 
 function onClickCssBtn() {
+    lastClicked = "css";
     let currentValue = inputEl.value.trim();
     if (currentValue.length === 0) return;
 
@@ -58,6 +62,7 @@ function onClickCssBtn() {
 }
 
 function onClickJsBtn() {
+    lastClicked = "js";
     let currentValue = inputEl.value;
     if (utilities.isEmptyString(currentValue)) return;
 
@@ -208,4 +213,12 @@ function resetCopyBtnText() {
             btn.classList.remove("fw-bold");
         }
     });
+}
+
+function updateOutputOnChange() {
+    if (lastClicked === "css") {
+        onClickCssBtn();
+    } else if (lastClicked === "js") {
+        onClickJsBtn();
+    }
 }
