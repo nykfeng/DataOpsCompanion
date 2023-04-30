@@ -7,10 +7,9 @@ goButton.addEventListener("click", (e) => {
     e.preventDefault();
     const input = inputField.value;
 
-    let inputArray = input.split(" ");
-    if (inputArray.length === 1) {
-        inputArray = inputArray[0].trim().split("\n");
-    }
+    let inputArray = input.split(/\s+/);
+    inputArray = inputArray.map(trimNewlineCharacter).map(trimComma);
+    inputArray = removeDuplicates(inputArray);
 
     inputArray.forEach((input) => {
         if (utilities.isEmptyString(input)) return;
@@ -42,7 +41,7 @@ function isConvertibleToInt(str) {
 }
 
 function isPageIdInRange(num) {
-    return num >= 0 && num <= 1000000;
+    return num > 0 && num <= 1000000;
 }
 
 function isValidPageId(str) {
@@ -54,4 +53,20 @@ function isValidPageId(str) {
 function troiRadarUrlBuilder(pageId) {
     const troiRadarViewInstancePageUrl = `https://troiradar.mrinternal.com/DigitalManagement/ViewInstance?urlSearchString=${pageId}&isProd=true`;
     return troiRadarViewInstancePageUrl;
+}
+
+function trimNewlineCharacter(str) {
+    if (str.endsWith("\n")) {
+        return str.slice(0, -1);
+    } else return str;
+}
+
+function trimComma(str) {
+    if (str.endsWith(",")) {
+        return str.slice(0, -1);
+    } else return str;
+}
+
+function removeDuplicates(array) {
+    return [...new Set(array)];
 }
