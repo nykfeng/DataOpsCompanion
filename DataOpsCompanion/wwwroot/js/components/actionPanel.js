@@ -203,6 +203,8 @@ function transformBtnToCopied(btn) {
     resetCopyBtnText();
     btn.textContent = "Copied";
     btn.classList.add("fw-bold");
+    // To automatically reset button text after 30 seconds
+    setTimeout(resetCopyBtnText, 30000);
 }
 
 function resetCopyBtnText() {
