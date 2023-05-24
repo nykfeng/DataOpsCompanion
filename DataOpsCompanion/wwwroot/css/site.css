@@ -29,9 +29,16 @@ body {
     min-height: 300px;
 }
 
+#action-panel {
+    width: 100%;
+}
+
 input#action-variable-input {
     width: 500px;
     padding: 3px 5px;
+    background-color: #e3e3ee;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 #action-variable-output {
